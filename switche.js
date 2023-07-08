@@ -22,16 +22,32 @@ function setActiveStyle(color) {
     }
   });
 }
-
 const daynight = document.querySelector(".day-night");
 const i = document.querySelector(".fa-solid");
 const html = document.querySelector("html");
 daynight.addEventListener("click", () => {
   html.classList.toggle("shadow");
-  if (i.classList.contains("fa-moon")) {
+  if (html.classList.contains("shadow")) {
     i.classList.remove("fa-moon");
     i.classList.add("fa-sun");
   } else {
     i.classList.add("fa-moon");
+    i.classList.remove("fa-sun");
+  }
+  if (html.classList.contains("shadow")) {
+    localStorage.setItem("mood", "shadow");
+  } else {
+    localStorage.setItem("mood", "light");
+  }
+});
+window.addEventListener("load", function () {
+  html.classList.toggle(localStorage.getItem("mood"));
+  document.body.classList.remove("hidden");
+  if (html.classList.contains("shadow")) {
+    i.classList.remove("fa-moon");
+    i.classList.add("fa-sun");
+  } else {
+    i.classList.add("fa-moon");
+    i.classList.remove("fa-sun");
   }
 });

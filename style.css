@@ -11,6 +11,10 @@ body {
   font-size: 16px;
   font-family: "Poppins", sans-serif;
 }
+.hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 html {
   scroll-behavior: smooth;
 }
